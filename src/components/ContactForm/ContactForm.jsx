@@ -3,7 +3,7 @@ import styles from "./ContactForm.module.css";
 import inputs from "../../constants/inputs";
 import { v4 } from "uuid";
 
-function ContactForm() {
+function ContactFormCopy() {
   //*useState ********************
   // submitted contacts
   const [contacts, setContacts] = useState([]);
@@ -72,4 +72,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default ContactFormCopy;
