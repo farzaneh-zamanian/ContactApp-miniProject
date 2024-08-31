@@ -50,6 +50,11 @@ function ContactForm() {
     setContacts(contacts.filter((contact) => contact.id !== id));
   };
 
+  // delete all contacts
+  const deleteContactsHandler = () => {
+    setContacts([]);
+  };
+
   const addHandler = () => {
     if (
       // if inputs are empty
@@ -125,6 +130,7 @@ function ContactForm() {
         <ContactList
           contacts={contacts}
           deleteContactHandler={deleteContactHandler}
+          deleteContactsHandler={deleteContactsHandler}
         />
       </div>
     </div>
