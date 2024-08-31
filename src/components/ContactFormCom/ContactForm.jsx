@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import inputs from "../../constants/inputs"
-import {validateInput} from "../../constants/validationInputs"
+import inputs from "../../constants/inputs";
+import { validateInput } from "../../constants/validationInputs";
 import { v4 } from "uuid";
-import styles from "./ContactForm.module.css"
-
+import styles from "./ContactForm.module.css";
 
 function ContactForm() {
   //*useState ********************
@@ -83,6 +82,8 @@ function ContactForm() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.alertContainer}>{alert && <p style={{ color: "#fff", backgroundColor:"grey" }}>{alert}</p>}</div>
+
       <div className={styles.formContainer}>
         {inputs.map((input, index) => (
           <div key={index}>
@@ -101,7 +102,6 @@ function ContactForm() {
         <button className="btn btn-lg btn-success" onClick={addHandler}>
           Add Contact
         </button>
-        {alert && <p style={{ color: "red" }}>{alert}</p>}
       </div>
     </div>
   );
