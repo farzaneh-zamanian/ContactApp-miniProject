@@ -3,6 +3,7 @@ import inputs from "../../constants/inputs";
 import { validateInput } from "../../constants/validationInputs";
 import { v4 } from "uuid";
 import styles from "./ContactForm.module.css";
+import ContactList from "../ContactList/ContactList";
 
 function ContactForm() {
   //*useState ********************
@@ -112,6 +113,10 @@ function ContactForm() {
         <button className="btn btn-lg btn-success" onClick={addHandler}>
           Add Contact
         </button>
+      </div>
+
+      <div>
+        <ContactList contacts={contacts} />
       </div>
     </div>
   );

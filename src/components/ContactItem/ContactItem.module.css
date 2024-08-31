@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 2rem;
+  align-items: center;
+  list-style: none;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.container:last-child {
+  border-bottom: none;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.email {
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.telephone {
+  font-size: 1.2rem;
+}
+
+.telephone a {
+  text-decoration: none;
+  color: #337ab7;
+  margin-left: 0.5rem;
+}
+
+.telephone a:hover {
+  color: #23527c; /* make the link change color on hover */
+}
+.btnContactControler {
+  text-align: right;
+}
