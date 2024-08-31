@@ -43,6 +43,12 @@ function ContactForm() {
     const error = validateInput(name, value);
     setErrors((errors) => ({ ...errors, [name]: error }));
   };
+  // delete each item with delete btn
+  const deleteContactHandler = (id) => {
+    // const newContacts = contacts.filter((contact) => contact.id !== id);
+    // setContacts(newContacts)
+    setContacts(contacts.filter((contact) => contact.id !== id));
+  };
 
   const addHandler = () => {
     if (
@@ -116,7 +122,10 @@ function ContactForm() {
       </div>
 
       <div>
-        <ContactList contacts={contacts} />
+        <ContactList
+          contacts={contacts}
+          deleteContactHandler={deleteContactHandler}
+        />
       </div>
     </div>
   );
