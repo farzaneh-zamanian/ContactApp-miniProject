@@ -1,6 +1,6 @@
 export const validateName = (value) => {
       if (!value) return "Name is required";
-      if (value.length < 5) return "Name must be at least 5 characters long";
+      if (value.length < 3) return "Name must be at least 5 characters long";
       return "";
 };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import inputs from "../../constants/inputs";
 import { validateInput } from "../../constants/validationInputs";
 import { v4 } from "uuid";
@@ -17,7 +17,9 @@ function ContactForm() {
   //alert message
   const [alert, setAlert] = useState("");
   // submitted contacts
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem("contacts")) || []
+  );
   // validation errors
   const [errors, setErrors] = useState({
     name: "",
@@ -27,6 +29,10 @@ function ContactForm() {
   });
 
   //*implement functions **********
+  // useEffect
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
   //   handle inputs changes and validation
   const changeHandler = (event) => {
     const name = event.target.name;
@@ -82,7 +88,11 @@ function ContactForm() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.alertContainer}>{alert && <p style={{ color: "#fff", backgroundColor:"grey" }}>{alert}</p>}</div>
+      <div className={styles.alertContainer}>
+        {alert && (
+          <p style={{ color: "#fff", backgroundColor: "grey" }}>{alert}</p>
+        )}
+      </div>
 
       <div className={styles.formContainer}>
         {inputs.map((input, index) => (
