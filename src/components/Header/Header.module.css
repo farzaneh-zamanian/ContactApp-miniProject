@@ -1,0 +1,12 @@
+.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  padding: 2.5rem;
+  border-radius: 1rem;
+}
+.container h1,
+h3 {
+  color: grey;
+}

@@ -1,7 +1,13 @@
 import { useState } from "react";
+import Layout from "./layouts/Layout";
 
 function App() {
-  return <></>;
+  return (
+    <>
+    <Layout/>
+    </>
+  )
+  ;
 }
 
 export default App;
