@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import styles from "./ContactList.module.css";
 import ContactItem from "../ContactItem/ContactItem";
+import SearchBox from "../SearchBox/SearchBox";
 
 function ContactList({
   contacts,
   deleteContactHandler,
   deleteContactsHandler,
+  search,
+  setSearch,
+  searchHandler,
 }) {
   //* useStates  ******************
   const [deleteAllContact, setDeleteAllContact] = useState(false);
@@ -46,15 +50,23 @@ function ContactList({
                 </button>
               </>
             ) : (
-              <button
-                className="btn btn-lg btn-danger"
-                onClick={deleteAllContacts}
-              >
-                Delete All Contacts
-              </button>
+              <>
+                <button
+                  className="btn btn-lg btn-danger"
+                  onClick={deleteAllContacts}
+                >
+                  Delete All Contacts
+                </button>
+              </>
             )}
           </div>
+
           <ul className={styles.container}>
+            <SearchBox
+              search={search}
+              setSearch={setSearch}
+              searchHandler={searchHandler}
+            />
             {contacts.map((contact) => (
               <ContactItem
                 key={contact.id}
@@ -65,7 +77,7 @@ function ContactList({
           </ul>
         </>
       ) : (
-        <p>No Contact Yet!</p>
+        <p className={styles.contactListContent}>No Contact Yet!</p>
       )}
     </div>
   );

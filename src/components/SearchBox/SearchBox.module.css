@@ -1,0 +1,31 @@
+.search{
+    background-color: grey;
+    padding: 1rem 0;
+}
+.search input{
+      width: 30rem;
+      height: 4rem;
+      border-radius: 5px;
+      padding: 1rem;
+      margin-right: 1rem;
+      font-size: 1rem;
+      background-color: #e0e0e0;
+}
+.search input:focus{
+      outline: none;
+}
+.search button{
+      width: 4rem;
+
+      height: 4rem;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      background-color: rgb(153, 217, 243);
+      color: #fff;
+      overflow: hidden;
+      transition: all 0.8s ease;
+}
+.search button svg:hover{
+      transform: scale(1.2);
+
+}

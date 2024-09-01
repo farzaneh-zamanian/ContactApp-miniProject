@@ -5,7 +5,6 @@ function header() {
   return (
     <header className={styles.container}>
       <h1>Contact App</h1>
-      <h3>React.js Course</h3>
     </header>
   );
 }

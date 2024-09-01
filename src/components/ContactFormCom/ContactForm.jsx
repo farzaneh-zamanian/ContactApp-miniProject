@@ -28,6 +28,10 @@ function ContactForm() {
     email: "",
     telephone: "",
   });
+  // search usestate
+  const [search, setSearch] = useState([]);
+  const [filteredSearchedContacts, setFilteredSearchedContacts] =
+    useState(contacts);
 
   //*implement functions **********
   // useEffect
@@ -53,6 +57,21 @@ function ContactForm() {
   // delete all contacts
   const deleteContactsHandler = () => {
     setContacts([]);
+  };
+  // serach the contact from contacts
+  const searchHandler = () => {
+    if (search) {
+      const filteredContacts = contacts.filter(
+        (contact) =>
+          contact.name.toLowerCase().includes(search.toLowerCase()) ||
+          contact.lastName.toLowerCase().includes(search.toLowerCase()) ||
+          contact.email.toLowerCase().includes(search.toLowerCase())
+      );
+      console.log(filteredContacts)
+      setFilteredSearchedContacts(filteredContacts);
+    } else {
+      setFilteredSearchedContacts(contacts);
+    }
   };
 
   const addHandler = () => {
@@ -128,9 +147,12 @@ function ContactForm() {
 
       <div>
         <ContactList
-          contacts={contacts}
+          contacts={search ? filteredSearchedContacts : contacts}
           deleteContactHandler={deleteContactHandler}
           deleteContactsHandler={deleteContactsHandler}
+          search={search}
+          setSearch={setSearch}
+          searchHandler={searchHandler}
         />
       </div>
     </div>
