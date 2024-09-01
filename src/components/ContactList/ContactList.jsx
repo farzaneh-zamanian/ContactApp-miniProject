@@ -7,6 +7,7 @@ function ContactList({
   contacts,
   deleteContactHandler,
   deleteContactsHandler,
+  editContactHandler,
   search,
   setSearch,
   searchHandler,
@@ -72,6 +73,7 @@ function ContactList({
                 key={contact.id}
                 contact={contact}
                 deleteContactHandler={deleteContactHandler}
+                editContactHandler={editContactHandler}
               />
             ))}
           </ul>

@@ -33,6 +33,9 @@ function ContactForm() {
   const [filteredSearchedContacts, setFilteredSearchedContacts] =
     useState(contacts);
 
+  // edit contact useState
+  const [editedContact, setEditedContact] = useState(null);
+
   //*implement functions **********
   // useEffect
   useEffect(() => {
@@ -67,12 +70,32 @@ function ContactForm() {
           contact.lastName.toLowerCase().includes(search.toLowerCase()) ||
           contact.email.toLowerCase().includes(search.toLowerCase())
       );
-      console.log(filteredContacts)
+      console.log(filteredContacts);
       setFilteredSearchedContacts(filteredContacts);
     } else {
       setFilteredSearchedContacts(contacts);
     }
   };
+
+  // find and save edited contact info to contacts array
+  const saveEditedContactHandler = (updatedContact) => {
+    setContacts(
+      contacts.map((contact) =>
+        contact.id === updatedContact.id ? updatedContact : contact
+      )
+    );
+    setEditedContact(null);
+  };
+
+  // edit contact func get the edited data and send to save func
+  const editContactHandler = (editedContactInfo) => {
+    setEditedContact(editedContactInfo);
+  };
+  useEffect(() => {
+    if (editedContact) {
+      saveEditedContactHandler(editedContact);
+    }
+  }, [editedContact]);
 
   const addHandler = () => {
     if (
@@ -150,6 +173,7 @@ function ContactForm() {
           contacts={search ? filteredSearchedContacts : contacts}
           deleteContactHandler={deleteContactHandler}
           deleteContactsHandler={deleteContactsHandler}
+          editContactHandler={editContactHandler}
           search={search}
           setSearch={setSearch}
           searchHandler={searchHandler}

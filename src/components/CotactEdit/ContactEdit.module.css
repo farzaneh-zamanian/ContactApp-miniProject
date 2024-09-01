@@ -1,0 +1,13 @@
+.inputContainer{
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+      padding: 20px;
+}
+.inputContainer input{
+      padding: 1rem;
+      background-color: #eee;
+      border-radius: 5px;
+}
