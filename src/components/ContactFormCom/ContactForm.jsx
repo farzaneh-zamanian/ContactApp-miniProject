@@ -41,6 +41,12 @@ function ContactForm() {
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
+
+  // inorder to show the changes imediatelly
+  useEffect(() => {
+    setFilteredSearchedContacts(contacts);
+  }, [contacts]);
+
   //   handle inputs changes and validation
   const changeHandler = (event) => {
     const name = event.target.name;
@@ -52,9 +58,9 @@ function ContactForm() {
   };
   // delete each item with delete btn
   const deleteContactHandler = (id) => {
-    // const newContacts = contacts.filter((contact) => contact.id !== id);
-    // setContacts(newContacts)
-    setContacts(contacts.filter((contact) => contact.id !== id));
+    const newContacts = contacts.filter((contact) => contact.id !== id);
+    setContacts(newContacts);
+    // setContacts(contacts.filter((contact) => contact.id !== id));
   };
 
   // delete all contacts
@@ -90,6 +96,7 @@ function ContactForm() {
   // edit contact func get the edited data and send to save func
   const editContactHandler = (editedContactInfo) => {
     setEditedContact(editedContactInfo);
+    saveEditedContactHandler(editedContactInfo);
   };
   useEffect(() => {
     if (editedContact) {
