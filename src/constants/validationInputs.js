@@ -1,6 +1,6 @@
 export const validateName = (value) => {
       if (!value) return "Name is required";
-      if (value.length < 3) return "Name must be at least 5 characters long";
+      if (value.length < 3) return "at least 5 characters ";
       return "";
 };
 
@@ -13,7 +13,7 @@ export const validateEmail = (value) => {
 
 export const validateTelephone = (value) => {
       if (!value) return "Telephone is required";
-      if (!/^09\d{9}$/.test(value)) return "Invalid telephone number";
+      if (!/^09\d{9}$/.test(value)) return "Invalid telephone number ";
       return "";
 };
 
